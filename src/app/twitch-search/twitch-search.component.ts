@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchResult } from '../shared/search-result.model';
 
 @Component({
   selector: 'app-twitch-search',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./twitch-search.component.scss']
 })
 export class TwitchSearchComponent implements OnInit {
+  results: SearchResult[];
+  loading: boolean;
+  constructor() {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
+  updateResults(results: SearchResult[]): void {
+    this.results = results;
+    console.log('results', this.results);
   }
-
 }

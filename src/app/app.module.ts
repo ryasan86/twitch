@@ -1,5 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+
+import { HttpErrorHandler } from './http-error-handler.service';
+import { MessageService } from './message.service';
+import { twitchSearchInjectables } from './shared/twitch-search.injectables';
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
@@ -17,10 +23,8 @@ import { TwitchSearchComponent } from './twitch-search/twitch-search.component';
     SearchResultComponent,
     TwitchSearchComponent
   ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
+  imports: [BrowserModule, HttpClientModule, HttpModule],
+  providers: [twitchSearchInjectables, HttpErrorHandler, MessageService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

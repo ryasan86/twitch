@@ -2,8 +2,8 @@
   <div class="container">
     <app-header>
     </app-header>
-    <app-search-box></app-search-box>
-    <div class="box">Loading...</div>
+    <app-search-box (loading)="loading = $event" (results)="updateResults($event)"></app-search-box>
+    <div *ngIf="loading" class="box">Loading...</div>
     <hr>
     <div class="columns">
       <div class="column is-2">
@@ -13,13 +13,12 @@
           <div>
             Results
           </div>
-          <app-search-result>
+          <app-search-result *ngFor="let result of results" [result]="result">
           </app-search-result>
         </div>
       </div>
       <div class="column is-2">
       </div>
     </div>
-    <app-footer></app-footer>
   </div>
 </section>

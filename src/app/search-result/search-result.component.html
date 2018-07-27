@@ -1,3 +1,26 @@
-<p>
-  search-result works!
-</p>
+<article class="media">
+  <div class="media-left">
+    <figure class="image is-64x64">
+      <img src="{{result.logo}}" alt="{{result.name}}">
+    </figure>
+  </div>
+  <div class="media-content">
+    <div class="content">
+      <p>
+        <a href="{{result.videoUrl}}" target="_blank">
+          <strong>{{result.name}}</strong>
+        </a>
+        <small class="tw" style="float:right;">channel views: {{result.views}}</small>
+      </p>
+      <p>
+        {{result.status}}
+      </p>
+    </div>
+    <nav class="level">
+      <div class="level-left">
+        <p class="level-item">playing: {{result.game}}</p>
+      </div>
+    </nav>
+  </div>
+</article>
+<hr>
